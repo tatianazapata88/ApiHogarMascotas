@@ -83,5 +83,22 @@ class APIController extends ResourceController
       
 
 }
-  
+ 
+
+public function eliminar($id){
+    $consulta=$this->model->where('codAnimal',$id)->delete();
+    $filasAfectadas=$consulta->connID->affected_rows;
+
+    if($filasAfectadas==1){
+    
+    $mensaje=array('estado'=>true,'mensaje'=>"registro eliminado con exito");
+    return $this->respond($mensaje);
+}
+else{
+    $mensaje=array('estado'=>false,'mensaje'=>"El conductor a eliminar no se encontro en la BD");
+    return $this->respond($mensaje,400);
+}
+    
+
+}
 }

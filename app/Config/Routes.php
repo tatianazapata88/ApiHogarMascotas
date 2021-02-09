@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 $routes->get('/animal', 'APIController::consultarTodos');
 $routes->post('/animal/nuevo', 'APIController::agregarAnimal');
 $routes->put('/animal/editar/(:any)', 'APIController::editar/$1');
+$routes->delete('/animal/eliminar/(:any)', 'APIController::eliminar/$1');
+
 
 
 
