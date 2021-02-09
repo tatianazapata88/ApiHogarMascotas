@@ -50,5 +50,38 @@ class APIController extends ResourceController
     
 
     }
+
+    public function editar($id)
+    {
+        $datosPeticion=$this->request->getRawInput();
+
+        $nombreAnimal=$datosPeticion["nombreAnimal"];
+        $tipoAnimal=$datosPeticion["tipoAnimal"];
+        $descAnimal=$datosPeticion["descAnimal"];
+        $comidaAnimal=$datosPeticion["comidaAnimal"];
+        
+
+        $datosEnvio=array(
+            "nombreAnimal"=>$nombreAnimal,
+            "tipoAnimal"=>$tipoAnimal,
+            "descAnimal"=>$descAnimal,
+            "comidaAnimal"=>$comidaAnimal
+            
+
+        );
+     
+
+        if($this->validate('animalPUT')){
+            $this->model->update($id,$datosEnvio);
+             $mensaje=array('estado'=>true,'mensaje'=>"registro realizado con exito");
+             return $this->respond($mensaje);
+         }
+         else{
+             $validation =  \Config\Services::validation();
+             return $this->respond($validation->getErrors(),400);
+         }
+      
+
+}
   
 }

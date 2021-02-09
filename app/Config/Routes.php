@@ -32,6 +32,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/animal', 'APIController::consultarTodos');
 $routes->post('/animal/nuevo', 'APIController::agregarAnimal');
+$routes->put('/animal/editar/(:any)', 'APIController::editar/$1');
+
 
 
 /**

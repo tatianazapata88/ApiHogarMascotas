@@ -40,6 +40,16 @@ class Validation
 
 	];
 
+	public $animalPUT=[
+
+		'nombreAnimal'=>'required',
+		'tipoAnimal'=>'required',
+		'descAnimal'=>'required',
+		'comidaAnimal'=>'required',
+	
+		
+
+	];
 
 	//--------------------------------------------------------------------
 	// Rules
